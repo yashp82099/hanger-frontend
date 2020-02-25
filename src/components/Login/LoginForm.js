@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Redirect, useHistory} from 'react-router-dom'
+import {Redirect, useHistory, withRouter} from 'react-router-dom'
 
 const loginAPI = 'http://localhost:3000/sessions'
 
@@ -25,15 +25,15 @@ function LoginForm(props) {
                 
             }
         })
-        props.reset_input()
-        return <Redirect to='/home' />
+        // props.reset_input()
+        props.history.push({pathname: '/home'})
     }
     // {user: {username: props.username, password: props.password}}
 
 
     return (
         <div>
-            {props.render? <Redirect to='/home'/> : localStorage.removeItem('token') }
+            {/* {props.render? <Redirect to='/home'/> : localStorage.removeItem('token') } */}
             <form onSubmit={handleSubmit}  >
                 <input type='text' name='username' value={props.username} onChange={(e)=> props.edit_form(e)} /><br/>
                 <input type='text' name='password' value={props.password} onChange={(e)=> props.edit_form(e)} />
@@ -56,4 +56,4 @@ const mapDispatchToProp = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProp, mapDispatchToProp)(LoginForm)
+export default withRouter(connect(mapStateToProp, mapDispatchToProp)(LoginForm))

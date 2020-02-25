@@ -1,0 +1,24 @@
+.infoRight{
+    width: 50% ;
+    float: left;
+    height: 40%;
+}
+
+.infoLeft{
+    width: 50% ;
+    float: right;
+    height: 40%;
+}
+
+.productImg{
+    margin: auto;
+    border: 7px solid yellow;
+}
+
+
+.ul.item{
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* src/index.css */
