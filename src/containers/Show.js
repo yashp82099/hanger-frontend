@@ -29,8 +29,7 @@ export class Show extends Component {
         return (
             <div>
                 <div>
-                    <Icon onClick={()=>this.props.unselect()} name='arrow left'/>
-
+                    <Icon onClick={()=>this.props.unselect()} name='arrow left' size='massive'/>
                 </div>
                 {/* <button ></button><br/> */}
                 {this.props.show || this.state.product.title? null : <Redirect to='/home' />}

@@ -3,6 +3,7 @@ const initialState = {
     last_name: '',
     email: '',
     addresses: [],
+    selectedAddress: {},
 }
 
 export default (state = initialState, action) => {
@@ -11,6 +12,8 @@ export default (state = initialState, action) => {
             return action.value
         case 'ADD_ADDRESS':
             return {...state, addresses: [...state.addresses, action.value]}
+        case 'SELECT_ADDRESS': 
+            return {...state, selectedAddress: action.value}
         default: 
         return state
     }

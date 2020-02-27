@@ -36,7 +36,7 @@ function LoginForm(props) {
             {/* {props.render? <Redirect to='/home'/> : localStorage.removeItem('token') } */}
             <form onSubmit={handleSubmit}  >
                 <input type='text' name='username' value={props.username} onChange={(e)=> props.edit_form(e)} /><br/>
-                <input type='text' name='password' value={props.password} onChange={(e)=> props.edit_form(e)} />
+                <input type='password' name='password' value={props.password} onChange={(e)=> props.edit_form(e)} />
                 <button type='submit'>login</button>
             </form>
             

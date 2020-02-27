@@ -4,7 +4,7 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 function ProductCard(props) {
     return (
         <div onClick={()=> props.handleShow(props.product)}>
-        <Card>
+        <Card centered raised>
             <Image src={props.product.thumb_image}/>
             <Card.Content>
                 <Card.Header>{props.product.title}</Card.Header>

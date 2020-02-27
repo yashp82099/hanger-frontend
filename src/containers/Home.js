@@ -76,7 +76,6 @@ export class Home extends Component {
                 <NavBar />
                <Link to='/cart'><h2> <Icon name='shopping cart'/>:${this.props.total.toFixed(2)}-({this.props.cart.length})</h2></Link>
                 <Banner/>
-                <Link to='/cart'><button>CART</button></Link>
                 {this.props.products.response?
                 this.handleSelected()
                 : <Redirect to='/home'/>}
