@@ -1,0 +1,118 @@
+.formDiv{
+    width: 100% !important;
+}
+
+div.ui.massive.transparent.left.icon.input{
+    position: relative;
+    left: 45%;  
+}
+
+.filterBtnDiv{
+    position: absolute;
+    top: 40%;
+    left: 88%;
+}
+
+.productsDiv{
+    position: relative;
+    top: 60%;
+}
+
+
+.cartDiv{
+    padding: 2%;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.35);
+    /* border:2px solid bisque; */
+    border-radius: 5px;
+    width: 80%;
+    height: 70vh;
+    overflow: scroll;
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    margin: 0 auto;
+}
+
+.addressBtn{
+    
+    width: 20%;
+    margin: 0 auto;
+    padding: 1vh 0;
+    text-align: center;
+}
+
+.totalDiv h2{
+    width: 68%;
+    /* font-size: 6vh !important; */
+    margin: auto;
+    text-align: right;
+}
+
+.addressTo{
+    /* border: 2px solid antiquewhite; */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width:20%;
+    margin: 0 auto;
+}
+.addressTo h2{
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    text-shadow: dodgerblue;
+}
+.addressTo h3{
+    text-align: center;
+    text-shadow: dodgerblue;
+}
+
+.checkBtn{
+    text-align: center;
+}
+
+.profileInfo{
+    width: 48%;
+    border-right: 5px solid yellow;
+    padding: 20px 0;
+    position: relative;
+    top: 0px;
+}
+
+.profileAddress{
+    position: absolute;
+    padding: 2vh;
+    left: 50%;
+    top: 9vh;
+    width: 48%;
+    height: 30vh;
+    overflow: scroll;
+    overflow-x: hidden; 
+    /* overflow-x: auto; */
+    
+}
+
+.infoDiv{
+    width: 100%;
+    border-bottom: 5px solid yellow;
+}
+
+.orderInfo{
+    /* padding; */
+    /* border-top: 5px yellow; */
+    width: 80%;
+    margin: 20px auto;
+    height: 60vh;
+    
+}
+
+.driveDiv{
+    
+}
+
+.DriveOrders{
+    width: 90%;
+    height: 95vh;
+    border: 2px solid yellow;
+    margin: auto;
+    overflow: scroll;
+    overflow-x: hidden; 
+}

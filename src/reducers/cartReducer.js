@@ -14,10 +14,7 @@ export default (state = initialState, action) => {
                 return {...state,cart: [...newArray, {...action.value,price: action.value.price * (oldProduct.quantity + 1), quantity: oldProduct.quantity + 1 }], total: state.total+action.total}
             }else{
                 return {...state,cart: [...state.cart,{...action.value, quantity: 1}], total: state.total+action.total
-            }
-
-
-            }
+            }}
         case 'REMOVE_FROM_CART':
             return {...initialState}
         default:

@@ -8,8 +8,11 @@ import cartReducer from './reducers/cartReducer'
 import userReducer from './reducers/userReducer'
 import addressReducer from './reducers/addressReducer'
 import orderReducer from './reducers/orderReducer'
-import { useHistory } from 'react-router-dom'
-import { useReducer } from 'react'
+import searchReducer from './reducers/searchReducer'
+import driverReducer from './reducers/driverReducer'
+import locationReducer from './reducers/locationReducer'
+import driverInfoReducer from './reducers/driverInfoReducer'
+
 
 
 
@@ -22,6 +25,10 @@ const rootReducer = combineReducers({
     user: userReducer,
     address: addressReducer,
     order: orderReducer,
+    filter: searchReducer,
+    driver: driverReducer,
+    location: locationReducer,
+    driver_info: driverInfoReducer,
 })
 
 

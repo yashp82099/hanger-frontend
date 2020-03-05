@@ -1,9 +1,10 @@
 import React from 'react'
+import './nav.css'
 
 function Banner() {
     return (
         <div>
-            <img src='https://i.ibb.co/521zsLm/logo.png' width='100%' alt='banner' />
+            <img className='banner' src='https://i.ibb.co/521zsLm/logo.png' />
         </div>
     )
 }

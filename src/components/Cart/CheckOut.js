@@ -1,9 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import StripeCheckout from "react-stripe-checkout";
-import axios from "axios";
+// import axios from "axios";
 import { toast } from "react-toastify";
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 // import "react-toastify/dist/ReactToastify.css";
 // import "./styles.css";
@@ -21,7 +22,7 @@ function App(props) {
       console.log(token);
 
 
-      let newCart = [...props.cart].map(product=> { return {pid: product.pid, img: product.thumb_image, quantity: product.quantity}})
+      let newCart = [...props.cart].map(product=> { return {pid: product.pid, img: product.thumb_image, quantity: product.quantity, price: product.sale_price }})
      
 
       fetch('http://localhost:3000/orders',{
@@ -35,14 +36,16 @@ function App(props) {
             last_4: token.card.last4, 
             client_ip: token.client_ip, 
             products: newCart, 
-            address: {...props.selectedAddress}
+            address: {...props.selectedAddress},
+            total: props.total,
+
           }
         })
       })
-      .then(res => {
-        // debugger
-        return res.json()
-        }).then(data => console.log(data))
+
+      props.clear()
+      props.history.push({pathname: '/profile'})
+
       // .then(res => res.json()).then(data => console.log(data))
 //       {id: "tok_1GGPVCG91malMoJn6DTpXGsx", object: "token", card: {…}, client_ip: "65.213.153.66", created: 1582722038, …}
 // id: "tok_1GGPVCG91malMoJn6DTpXGsx"
@@ -96,7 +99,6 @@ function App(props) {
     <div className="container">
       <div className="product">
         {/* <h1>{product.name}</h1> */}
-        <h3>Total · ${product.price}</h3>
       </div>
       <StripeCheckout
         stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
@@ -107,7 +109,7 @@ function App(props) {
         token={handleToken}
         amount={product.price * 100}
         name="Hanger"
-        billingAddress
+        // billingAddress
         // shippingAddress
       />
     </div>
@@ -115,13 +117,13 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-  return {...state.cart, ...state.user}
+  return {...state.cart, ...state.user, ...state.order}
 }
 
 
-const mapStateToDispatch = (dispatch) => {
-
+const mapDispatchToProps = (dispatch) => {
+    return {clear: () => dispatch({type:'REMOVE_FROM_CART'})}
 }
 
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

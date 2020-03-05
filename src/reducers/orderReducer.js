@@ -8,7 +8,14 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type){
         case 'ADD_ORDER':
-            return {...state, orders: action.value}
+            // debugger
+            if(state.selectedOrder.id){
+                let orders = action.value.filter(order => order.id === state.selectedOrder.id)[0]
+                return {...state, selectedOrder: orders}
+            }else{
+              return {...state, selected: action.value[0]}  
+            }
+            
         case 'SELECT_ORDER':
             return {...state, selectedOrder: action.value}
         case 'UNSELECT':

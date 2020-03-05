@@ -1,0 +1,69 @@
+.driveDiv{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0vh;
+
+}
+
+.liveOrders{
+    padding: 0 50px;
+}
+
+
+.doneBtn{
+    position: absolute;
+    top: 78%;
+    left: 48%;
+}
+
+.infoDriverDiv{
+    padding: 10vh;
+
+}
+
+
+
+.googleMap{
+    width: 50%;
+    /* padding: ; */
+}
+
+.googleMap:hover{
+    width: 60%;
+    /* padding: ; */
+}
+
+.googlePar{
+    padding: 23%;
+}
+
+.orderNum{
+    position: absolute;
+    top: 5%;
+    width: 20%;
+    left: 40%;
+    border: 1px solid rgb(22, 56, 252);
+    border-radius: 25px;
+    background-color: rgb(243, 243, 159);
+    opacity: 80%;
+    text-align: center;
+}
+
+.liveOrders{
+    border: 1px solid blue;
+    margin: 0px 20px;
+}
+
+.liveOrders:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.liveOrders h2{
+    font-weight: bolder !important;
+}
+
+.liveOrders p{
+
+}

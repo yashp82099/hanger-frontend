@@ -1,7 +1,7 @@
 import React from 'react'
-import Show from '../../containers/Show'
+// import Show from '../../containers/Show'
 import {connect} from 'react-redux'
-import {Icon} from "semantic-ui-react"
+import {Button, Icon, Image, Label,Dropdown, Menu} from "semantic-ui-react"
 
 function ShowInfo(props) {
 
@@ -16,14 +16,48 @@ function ShowInfo(props) {
         props.add(newProduct)
     }
 
+    const options = [
+        { key: 's', text: 'extra small', value: 'xs' },
+        { key: 'm', text: 'small', value: 's' },
+        { key: 'l', text: 'medium', value: 'm' },
+        { key: 'm', text: 'large', value: 'l' },
+        { key: 'l', text: 'extra large', value: 'xl' },
+      ]
+
 
     return (
         <div>
             <h2>{props.info.title}</h2>
-            <h3>{props.info.brand}</h3>
-            <h5>${props.info.price}</h5>
+            <h2>{props.info.brand}</h2>
+            <div className='priceDiv'>
+             <Label color='blue' centered  size='huge'>
+                <Icon name='dollar sign'/>{props.info.price}
+            </Label>   
+            </div>
+            
+            <br/>
             {props.info.variants?props.info.variants.map(color => renderColor(color)):null}
-            <button onClick={()=>handleCart(props.info)}>ADD TO CART</button>
+            <br/>
+            <div>
+            <div className='priceAdd'>
+            <div>
+                I'd like a size{' '}
+                <Dropdown size='huge' upward floating inline options={options} defaultValue='m' />{' '}
+                , please.
+            </div>
+                <br/>
+                <Button animated='vertical' onClick={()=>handleCart(props.info)}>
+                <Button.Content visible>ADD TO CART</Button.Content>
+                <Button.Content hidden>
+                <Icon name='shop' />
+                </Button.Content>
+                </Button>
+            </div>
+            
+            <div>
+                <Image centered src='https://shop.champrosports.com/marketingtools/images/SizeChart-Adult.png'/>
+            </div>
+            </div>
             
         </div>
     )

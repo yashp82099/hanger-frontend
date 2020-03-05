@@ -9,15 +9,26 @@
     position: absolute;
     top: 40%;
     left: 15%;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .driverInfo{
     background-color:  rgb(246, 247, 226);
     position: absolute;
     top: 10%;
-    left: 85%;
-    padding: 10px;
-    width: 10%;
-    border: 1px black solid;
-    border-radius: 25px;
+    left: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    /* padding: 10px; */
+    width: 20%;
+    /* border: 1px black solid; */
+    /* border-radius: 25px; */
+    
+}
+
+.orderNumber{
+    position: fixed;
+    top: 40%;
+    left: 44%;
 }

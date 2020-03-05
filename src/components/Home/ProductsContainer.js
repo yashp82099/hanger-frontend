@@ -9,7 +9,7 @@ function ProductsContainer(props) {
     
     return (
         <div className='homeList'>
-            <Card.Group centered>
+            <Card.Group textAlign='center' itemsPerRow={10} centered>
                 {props.products.map((product,i) => <ProductCard key={i} handleShow={props.handleShow} product={product}/>)}
             </Card.Group>
         </div>

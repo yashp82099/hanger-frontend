@@ -1,0 +1,19 @@
+.ICDiv{
+    overflow: scroll;
+    overflow-x: hidden; 
+}
+
+.CDiv{
+    height: 35vh;
+    overflow: scroll;
+    overflow-x: hidden; 
+}
+
+.proOrderCard{
+    padding: 20px;
+}
+.proOrderCard:hover{
+    border: 1px solid gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}

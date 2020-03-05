@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import {Redirect, Link} from 'react-router-dom'
+// import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import ShowImg from '../components/Show/ShowImg'
 import ShowInfo from '../components/Show/ShowInfo'
 import {Icon} from 'semantic-ui-react'
 
-let product = {}
+// let product = {}
 
 export class Show extends Component {
 

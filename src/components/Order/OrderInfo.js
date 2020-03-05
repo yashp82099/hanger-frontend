@@ -1,132 +1,66 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ProductCard from './ProductCard';
 import './order.css';
-import {Icon} from 'semantic-ui-react'
-import { prettyDOM } from '@testing-library/react';
+import {Icon, Card} from 'semantic-ui-react'
+import {connect} from 'react-redux'
+// import { prettyDOM } from '@testing-library/react';
 
-function OrderInfo(props) {
+class OrderInfo extends Component{
 
-    const renderAddress = (address) => {
+
+    componentDidMount(){
+        if(this.props.order.status !== 'INCOMPLETE' && !this.props.driver_info.id){
+            console.log('hi');
+            fetch(`http://localhost:3000/get/order/driver/${this.props.order.id}`).then(res => res.json()).then(data => this.props.add_driver_info(data))
+            
+        }
+    }
+
+    renderAddress = (address) => {
         return <div>
             <h4>To: {address.address_1}<br/>{`${address.city} ${address.state} ${address.zip}`}</h4>
         </div>
     }
 
-
+    render(){
     return (
         <div className='orderDiv'>
             <div>
-                {console.log(props.order)}
-                <h2>Order Info: </h2>
-                {props.order.address? renderAddress(props.order.address): null}
+                {console.log(this.props.order)}
+                <h2 className='orderNumber'>Order Info: #{this.props.order.id}</h2>
+                {this.props.order.address? this.renderAddress(this.props.order.address): null}
                 <br/>
-                <Icon size='big' name='credit card outline'>(...{props.order.last_4})</Icon>
+                <Icon size='big' name='credit card outline'>(...{this.props.order.last_4})</Icon>
                 <br/>
-                <h4>Order Status: {props.order.status}</h4>
+                <h4>Order Status: {this.props.order.status}</h4>
                 <div className='driverInfo'>
-                    <h5>DRIVER</h5>
-                    <p>Driver is on their way to pick you the order</p>
+                {this.props.driver_info.id && this.props.order.status !== 'INCOMPLETE'?<Card>
+                    <Card.Content header={`${this.props.driver_info.first_name} ${this.props.driver_info.last_name}`} />
+                    <p>{this.props.driver_info.car} <br/> {this.props.driver_info.model} <br/> {this.props.driver_info.color}</p>
+                    <Card.Content extra>
+                    <Icon name='user' />4 Friends
+                    </Card.Content>
+                </Card>
+                :
+                <Card>
+                    <Card.Content description= 'Waiting from the driver to talk your order' />
+                </Card>}
                 </div>
                 <div className='productCard'>
-                {props.order.products? props.order.products.map((product, key) => <ProductCard product={product} info={props.order.order_products[key]} />) : null }
+                {this.props.order.products? this.props.order.products.map((product, key) => <ProductCard product={product} info={this.props.order.order_products[key]} />) : null }
                 </div>
                
             </div>
         </div>
-    )
+    )}
 }
 
-export default OrderInfo
+const mapStateToProps = (state) =>{
+    return {...state.driver_info}
+}
 
-// order
-// {address_id: 7, address: {…}, created_at: "2020-02-…}
+const mapDispatchToProps = (dispatch) =>{
+    return {add_driver_info: (data) => dispatch({type:'ADD_DRIVER', value:data})}
+}
 
-// address
-// {address_1: "1175 Peachtree St NE", address_2: "sch…}
-// address_id
-// 7
-// client_ip
-// "65"
-// created_at
-// "2020-02-26T14:50:35.790Z"
-// driver_id
-// null
-// id
-// 5
-// last_4
-// "4242"
-
-// order_products
-// [{…}, {…}]
-
-// 0
-// {created_at: "2020-02-26T14:50:50.724Z", id: 1, ord…}
-// created_at
-// "2020-02-26T14:50:50.724Z"
-// id
-// 1
-// order_id
-// 5
-// price
-// null
-// product_id
-// 5
-// quantity
-// 2
-// rating
-// null
-// updated_at
-// "2020-02-26T14:50:50.724Z"
-
-// 1
-// {created_at: "2020-02-26T14:51:10.514Z", id: 2, ord…}
-// created_at
-// "2020-02-26T14:51:10.514Z"
-// id
-// 2
-// order_id
-// 5
-// price
-// null
-// product_id
-// 10
-// quantity
-// 3
-// rating
-// null
-// updated_at
-// "2020-02-26T14:51:10.514Z"
-
-// products
-// [{…}, {…}]
-
-// 0
-// {created_at: "2020-02-25T19:21:05.160Z", id: 5, ima…}
-// created_at
-// "2020-02-25T19:21:05.160Z"
-// id
-// 5
-// image
-// "https://www.forever21.com/images/1_front_330/00397205-01.jpg"
-// product_number
-// 2000397205
-// updated_at
-// "2020-02-25T19:21:05.160Z"
-
-// 1
-// {created_at: "2020-02-25T19:21:05.204Z", id: 10, im…}
-// created_at
-// "2020-02-25T19:21:05.204Z"
-// id
-// 10
-// image
-// "https://www.forever21.com/images/1_front_330/00395847-01.jpg"
-// product_number
-// 2000395847
-// updated_at
-// "2020-02-25T19:21:05.204Z"
-// status
-// "INCOMPLETE"
-// updated_at
-// "2020-02-26T14:50:35.790Z"
-// user_id
+export default connect(mapStateToProps, mapDispatchToProps)(OrderInfo)

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import logo from './logo5.png'
+import './nav.css'
 
 export default class MenuExampleMenus extends Component {
   state = {}
@@ -12,6 +14,15 @@ export default class MenuExampleMenus extends Component {
 
     return (
       <Menu>
+
+        <Link to='/home'>
+          <Menu.Item>
+          <Image src={logo} size='mini' className='navLogo'/>
+        </Menu.Item>   
+        </Link>
+
+
+
         <Link to='/home'>
           <Menu.Item
           name='browse'
@@ -41,6 +52,15 @@ export default class MenuExampleMenus extends Component {
             onClick={this.handleItemClick}
           >
             Orders
+          </Menu.Item>
+          </Link>
+          <Link to='/profile'>
+            <Menu.Item
+            name='LogOut'
+            active={activeItem === 'LogO'}
+            onClick={this.handleItemClick}
+          >
+            Profile
           </Menu.Item>
           </Link>
           

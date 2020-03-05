@@ -1,3 +1,18 @@
 .homeList{
     padding: 30px 10px;
 }
+
+.filterDiv{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.productCardHome{
+    margin: 10px;
+}
+
+.productCardHome:hover{
+    box-shadow: 0 5px 5px 0 rgba(75, 137, 218, 0.5), 0 10px 25px 0 rgba(75, 137, 218, 0.5);
+    /* border: 2px solid rgb(75, 137, 218); */
+    /* border-radius: 5px; */
+}

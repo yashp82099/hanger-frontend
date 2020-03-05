@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Redirect, useHistory, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
+import { Button, Form, Card} from 'semantic-ui-react'
 
 const loginAPI = 'http://localhost:3000/sessions'
 
@@ -22,24 +23,32 @@ function LoginForm(props) {
             console.log(data)
             if(data.msg === 'PASS'){
                 localStorage.setItem('token',data.token)
+                localStorage.setItem('driver', data.driver)
+                console.log(data);
                 
             }
         })
         // props.reset_input()
+        
+        
         props.history.push({pathname: '/home'})
     }
     // {user: {username: props.username, password: props.password}}
 
 
     return (
-        <div>
-            {/* {props.render? <Redirect to='/home'/> : localStorage.removeItem('token') } */}
-            <form onSubmit={handleSubmit}  >
-                <input type='text' name='username' value={props.username} onChange={(e)=> props.edit_form(e)} /><br/>
-                <input type='password' name='password' value={props.password} onChange={(e)=> props.edit_form(e)} />
-                <button type='submit'>login</button>
-            </form>
-            
+        // <div></div>
+        <div className='form'>  {/* {props.render? <Redirect to='/home'/> : localStorage.removeItem('token') } */}
+            <Card centered>
+                <Card.Content>
+                    <Form onSubmit={handleSubmit}  >
+                        <Form.Input iconPosition='left' label='Username' placeholder='Username' icon='user' type='text' name='username' value={props.username} onChange={(e)=> props.edit_form(e)} /><br/>
+                        <Form.Input iconPosition='left' label='Username' placeholder='Username' icon='lock' type='password' name='password' value={props.password} onChange={(e)=> props.edit_form(e)} />
+                        <Button content='Login' primary />
+                    </Form> 
+                </Card.Content>
+               
+            </Card>
         </div>
     )
 }
