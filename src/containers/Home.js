@@ -112,7 +112,7 @@ export class Home extends Component {
         return (
             <div>   
                 <NavBar />
-                <Link to='/cart'><h2> <Icon name='shopping cart'/>:${this.props.total.toFixed(2)}-({this.props.cart.length})</h2></Link>
+                <Link to='/cart'><h2> <Icon name='shopping cart'/>:${this.props.total.toFixed(2)}</h2></Link>
                 <Banner/>
                 <div className='formDiv'>
                     <div>

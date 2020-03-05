@@ -41,7 +41,11 @@ export class DriveHome extends Component {
                         addresses: data.addresses,
                         drive: data.driver,
                         phone: data.phone_number,
-                        username: data.username}
+                        username: data.username,
+                        model: data.model,
+                        car: data.car,
+                        color: data.color,
+                    }
 
             this.props.add_driver(user)
             this.fetchOrder()
@@ -123,16 +127,20 @@ export class DriveHome extends Component {
                                 long: location.coords.longitude}
                         })
                     })
-                    }), 10000)}
+                    }), 15000)}
                     <div className='driveDiv'>
-                        {this.props.selectedOrder.id? <SelectOrder  handleComplete={this.handleComplete} order={this.props.selectedOrder} />: <div>hi<div className='DriveOrders'>
-                        {this.props.driver?<div className='profileInfo'>
-                        <Image centered src={this.props.driver.img} rounded width='200vh' height='200vh' circular />
+                        {this.props.selectedOrder.id? <SelectOrder  handleComplete={this.handleComplete} order={this.props.selectedOrder} />: <div>
+                            <div className='driverProfileInfo'>
+                            {this.props.driver?<div className='driverProfile'>
+                            <Image centered src={this.props.driver.img} rounded width='200vh' height='200vh' circular />
                             <h1>{this.props.driver.first_name} {this.props.driver.last_name}</h1>
-                            <h4>E-Mail : {this.props.driver.email}</h4>
-                            <h4>Phone : {this.props.driver.phone}</h4>
-                            <h4>Username : {this.props.driver.username}</h4>
+                            <h4>E-Mail : {this.props.driver.email} | Phone : {this.props.driver.phone} | Username : {this.props.driver.username}</h4>
+                            <h4>Car : {this.props.driver.model} - {this.props.driver.color} | Plates : {this.props.driver.car}</h4>
                             </div>:null}
+
+                            </div>
+                            <div className='DriveOrders'>
+                            
                             <OrdersContainer handleSelect={this.handleSelect} orders={this.props.orders} /></div></div>}
                     </div>
             </div>

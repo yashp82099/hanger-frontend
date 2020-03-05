@@ -35,6 +35,12 @@ export class Profile extends Component {
     }
 
 
+    handleAddress = (address) => {
+        let newAddresses = this.state.addresses.filter(ad => ad.id !== address.id)
+        this.setState({addresses: newAddresses})
+    }
+
+
     fetchUser = () => {
         fetch(UserApi,{
             method: 'GET',
@@ -80,7 +86,7 @@ export class Profile extends Component {
                 </div>
                 
                 <div className='profileAddress'>
-                {this.state.addresses.length > 0? <AddressContainer addresses={this.state.addresses}/>: null}
+                {this.state.addresses.length > 0? <AddressContainer handleAddress={this.handleAddress} addresses={this.state.addresses}/>: null}
                 </div>  
                 </div>
                 <div className='orderInfo'>

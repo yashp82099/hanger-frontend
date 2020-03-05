@@ -29,7 +29,7 @@ class App extends Component {
             "Token": localStorage.getItem('token')
         }
     }).then(res => res.json())
-    .then(data => this.props.select_order(data.reverse()[0])).then(()=> toast("Wow so easy !"))
+    .then(data => this.props.select_order(data.reverse()[0])).then(()=> toast(" Your order has an update, go to the orders tab to see update "))
     }
     
 {/* <ActionCable channel={{channel: "OrdersChannel"}} onReceived={this.handleReceivedConversation} */}

@@ -19,7 +19,13 @@ function OrderCard(props) {
             <ol>
                 {props.order.products.map((product,key)=> <li>{product.product_number} ---- {props.order.order_products[key].quantity}</li>)}
             </ol>
-            <button onClick={(e)=>props.handleSelect(props.order)}>Accept</button>
+            <div>
+               <Button animated='fade' size='huge' color='green'  onClick={(e)=>props.handleSelect(props.order)}>
+                <Button.Content  visible>Accept</Button.Content>
+                <Button.Content hidden><Icon name='check'/></Button.Content>
+            </Button> 
+            </div>
+            
         </div>
     )
 }

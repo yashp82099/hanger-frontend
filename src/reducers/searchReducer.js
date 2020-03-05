@@ -9,6 +9,7 @@ const initialState = {
 
 
 export default (state = initialState, action) => {
+    // debugger
     switch(action.type){
         case 'EDIT_SEARCH':
             return {...state, search: action.value}

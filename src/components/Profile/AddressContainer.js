@@ -5,7 +5,7 @@ import AddressCard from './AddressCard'
 function AddressContainer(props) {
     return (
         <Card.Group centered>
-            {props.addresses.map(address =><AddressCard address={address}/>)}
+            {props.addresses.map(address =><AddressCard handleAddress={props.handleAddress} address={address}/>)}
         </Card.Group>
     )
 }

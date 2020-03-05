@@ -12,7 +12,6 @@ class OrderInfo extends Component{
         if(this.props.order.status !== 'INCOMPLETE' && !this.props.driver_info.id){
             console.log('hi');
             fetch(`http://localhost:3000/get/order/driver/${this.props.order.id}`).then(res => res.json()).then(data => this.props.add_driver_info(data))
-            
         }
     }
 
@@ -38,7 +37,7 @@ class OrderInfo extends Component{
                     <Card.Content header={`${this.props.driver_info.first_name} ${this.props.driver_info.last_name}`} />
                     <p>{this.props.driver_info.car} <br/> {this.props.driver_info.model} <br/> {this.props.driver_info.color}</p>
                     <Card.Content extra>
-                    <Icon name='user' />4 Friends
+                    <Icon name='car' />
                     </Card.Content>
                 </Card>
                 :

@@ -62,7 +62,7 @@ function Filter(props) {
         console.log(name);
         
         
-        props.edit_filter(name, e)
+        props.edit_filter(name, value)
     }
 
     const handleSubmit = (e) => {
@@ -156,7 +156,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {edit_filter: (name, e)=> dispatch({type: 'EDIT_FILTER', name: name ,  value: e.target.querySelector('.text').innerText}),
+    return {edit_filter: (name, value)=> dispatch({type: 'EDIT_FILTER', name: name ,  value: value}),
             getProducts: (data) => dispatch({type: 'NEW_PRODUCTS', value:data}),
             unselect: ()=> dispatch({type:'UNSELECT'})}
 }

@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import LoginForm from '../components/Login/LoginForm'
 import Pictures from '../components/Login/Pictures'
 import logo from './logo.png'
+import {withRouter} from 'react-router-dom'
 import { Button, Divider, Container, Form, Image, Grid, Segment } from 'semantic-ui-react'
 
 class Login extends Component {
@@ -33,6 +34,9 @@ class Login extends Component {
                 <Divider vertical>Hanger</Divider>
             </Segment>
         </Container> 
+        <Container textAlign='center'>
+        <Button onClick={()=>  this.props.history.push({pathname: '/signup'})} color='blue'>Create Account</Button>
+        </Container>
           </div>
         
         
@@ -41,4 +45,4 @@ class Login extends Component {
     
 }
 
-export default Login
+export default withRouter(Login)

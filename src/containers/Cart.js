@@ -20,7 +20,7 @@ class Cart extends Component{
              <ListContainer />   
             </div>
             <div className='totalDiv'>
-                <h2>${this.props.total}</h2>
+                <h2>Total: ${parseFloat(this.props.total)}</h2>
             </div>
             <div className='addressBtn'>
                <AddressContainer /> 

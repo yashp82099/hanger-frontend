@@ -9,13 +9,13 @@ div.ui.massive.transparent.left.icon.input{
 
 .filterBtnDiv{
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 88%;
 }
 
 .productsDiv{
     position: relative;
-    top: 60%;
+    top: 65%;
 }
 
 
@@ -42,9 +42,15 @@ div.ui.massive.transparent.left.icon.input{
 
 .totalDiv h2{
     width: 68%;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    width: 20%;
+    padding: 5px;
+    background-color: rgb(218, 241, 255);
     /* font-size: 6vh !important; */
-    margin: auto;
-    text-align: right;
+    margin-top: 10px;
+    margin-left: 70%;
+    /* text-align: right; */
 }
 
 .addressTo{
@@ -111,8 +117,30 @@ div.ui.massive.transparent.left.icon.input{
 .DriveOrders{
     width: 90%;
     height: 95vh;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     margin: auto;
     overflow: scroll;
     overflow-x: hidden; 
+}
+
+.driverProfileInfo{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    /* border: 2px solid yellow; */
+    background-color: dodgerblue;
+}
+
+.driverProfileInfo h1{
+    text-align: center;
+    color: White;
+    font-size: xx-large;
+}
+
+.driverProfileInfo h4{
+    text-align: center;
+    color: White;
+    font-size: x-large;
 }

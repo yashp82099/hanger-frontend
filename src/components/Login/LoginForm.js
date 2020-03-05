@@ -43,7 +43,7 @@ function LoginForm(props) {
                 <Card.Content>
                     <Form onSubmit={handleSubmit}  >
                         <Form.Input iconPosition='left' label='Username' placeholder='Username' icon='user' type='text' name='username' value={props.username} onChange={(e)=> props.edit_form(e)} /><br/>
-                        <Form.Input iconPosition='left' label='Username' placeholder='Username' icon='lock' type='password' name='password' value={props.password} onChange={(e)=> props.edit_form(e)} />
+                        <Form.Input iconPosition='left' label='Password' placeholder='Password' icon='lock' type='password' name='password' value={props.password} onChange={(e)=> props.edit_form(e)} />
                         <Button content='Login' primary />
                     </Form> 
                 </Card.Content>

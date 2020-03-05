@@ -1,5 +1,5 @@
 import React from 'react'
-import {Item, Image, Modal, Header} from 'semantic-ui-react'
+import {Card, Image, Modal, Header} from 'semantic-ui-react'
 
 function ProductCard(props) {
 
@@ -8,24 +8,18 @@ function ProductCard(props) {
 
 
     return (
-        <Modal trigger={<Item>
-            <Item.Image size='tiny' src={props.product.image} />
-
-            <Item.Content>
-                <Item.Header as='a'>Product Name</Item.Header>
-            </Item.Content>
-        </Item>}>
+        <Modal trigger={<Card>
+            <Image size='small' src={props.product.image} wrapped ui={false} />
+            </Card>}>
             <Modal.Header>HANGER</Modal.Header>
             <Modal.Content image>
             <Image wrapped size='medium' src={props.product.image} />
             <Modal.Description>
-                <Header>Default Profile Image</Header>
+                <Header>Order No: {props.info.id}</Header>
+                <h2>{props.info.created_at.substring(0,10)}</h2>
+                <h2>Product ID: {props.info.product_id}</h2>
+                <h2>Price: {props.info.price}</h2>
                 <h2>Quantity: {props.info.quantity}</h2>
-                <p>
-                We've found the following gravatar image associated with your e-mail
-                address.
-                </p>
-                <p>Is it okay to use this photo?</p>
             </Modal.Description>
             </Modal.Content>
         </Modal>
